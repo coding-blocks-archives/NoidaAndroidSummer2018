@@ -13,29 +13,24 @@
         android:orientation="horizontal">
 
         <EditText
+            android:id="@+id/noteEt"
             android:layout_width="wrap_content"
-            android:layout_weight="4"
             android:layout_height="wrap_content"
-            android:hint="Enter note here"
-            android:id="@+id/noteEt"/>
+            android:layout_weight="4"
+            android:hint="Enter note here" />
 
         <Button
             android:id="@+id/btnAddNote"
-            android:text="Add"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"/>
+            android:layout_weight="2"
+            android:text="Add" />
 
     </LinearLayout>
 
-    <GridView
-        android:numColumns="2"
-        android:id="@+id/notesLV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

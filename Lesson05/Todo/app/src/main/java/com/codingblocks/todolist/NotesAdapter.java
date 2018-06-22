@@ -37,6 +37,11 @@ public class NotesAdapter extends BaseAdapter {
 
     class ViewHolder{
         TextView noteTitle,noteDetail;
+
+        public ViewHolder(View v) {
+            noteDetail = v.findViewById(R.id.tvDetails);
+            noteTitle = v.findViewById(R.id.tvNote);
+        }
     }
 
     @Override
@@ -45,9 +50,9 @@ public class NotesAdapter extends BaseAdapter {
         if (view == null){
             LayoutInflater li = LayoutInflater.from(ctx);
             inflatedView = li.inflate(R.layout.item_row,viewGroup,false);
-            ViewHolder viewHolder = new ViewHolder();
-            viewHolder.noteTitle = inflatedView.findViewById(R.id.tvNote);
-            viewHolder.noteDetail = inflatedView.findViewById(R.id.tvDetails);
+            ViewHolder viewHolder = new ViewHolder(inflatedView);
+//            viewHolder.noteTitle = inflatedView.findViewById(R.id.tvNote);
+//            viewHolder.noteDetail = inflatedView.findViewById(R.id.tvDetails);
             inflatedView.setTag(viewHolder);
         }else {
             inflatedView = view;
