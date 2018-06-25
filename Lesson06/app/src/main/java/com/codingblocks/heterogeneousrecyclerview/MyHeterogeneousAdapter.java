@@ -26,7 +26,7 @@ public class MyHeterogeneousAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
     @Override
-    public long getItemId(int position) {
+    public int getItemViewType(int position) {
         Object currentObject = objectArrayList.get(position);
         if (currentObject instanceof TextMessage) {
             return 0;
@@ -36,10 +36,16 @@ public class MyHeterogeneousAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             return -1;
     }
 
+//    @Override
+//    public long getItemId(int position) {
+//
+//    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(ctx);
+        Log.e("TAG", "onCreateViewHolder: " + i);
         if (i == 0) {
             View view = layoutInflater.inflate(R.layout.item_text, viewGroup, false);
             return new TextHolder(view);
@@ -54,17 +60,21 @@ public class MyHeterogeneousAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         Object currentObject = objectArrayList.get(i);
-        Log.e("TAG", "onBindViewHolder: " + getItemId(i));
-        if (getItemId(i) == 0) {
+        Log.e("TAG", "onBindViewHolder: " + getItemViewType(i));
+        if (getItemViewType(i) == 0) {
             TextHolder th = (TextHolder) viewHolder;
             TextMessage tm = (TextMessage) currentObject;
             th.userName.setText(tm.getMessage());
-        } else if (getItemId(i) == 1) {
+        } else if (getItemViewType(i) == 1) {
             ImageHolder ih = (ImageHolder) viewHolder;
             ImageMessage im = (ImageMessage) currentObject;
-            Picasso.get().load(im.getImageUrl()).into(ih.userImage);
+            Picasso.get()
+                    .load(im.getImageUrl())
+                    .noFade()
+                    .placeholder(R.mipmap.ic_launcher)
+                    .error(R.drawable.ic_error)
+                    .into(ih.userImage);
         }
-
     }
 
     @Override

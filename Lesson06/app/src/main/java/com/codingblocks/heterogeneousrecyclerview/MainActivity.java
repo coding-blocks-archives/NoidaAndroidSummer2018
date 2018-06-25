@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         objects.add(new TextMessage("Alice White"));
-        objects.add(new ImageMessage("https://randomuser.me/api/portraits/women/88.jpg"));
+        objects.add(new ImageMessage("https://randomuser.me/api/portraits/women"));
         objects.add(new ImageMessage("https://randomuser.me/api/portraits/women/13.jpg"));
         objects.add(new ImageMessage("https://randomuser.me/api/portraits/women/44.jpg"));
         objects.add(new ImageMessage("https://randomuser.me/api/portraits/women/45.jpg"));
