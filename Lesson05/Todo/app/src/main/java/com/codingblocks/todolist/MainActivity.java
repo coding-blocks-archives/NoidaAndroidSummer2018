@@ -1,5 +1,7 @@
 package com.codingblocks.todolist;
 
+import android.app.ActivityManager;
+import android.os.UserManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ((UserManager)getSystemService(USER_SERVICE)).isUserAGoat();
         addBtn = findViewById(R.id.btnAddNote);
         etNote = findViewById(R.id.noteEt);
         lvNote = findViewById(R.id.notesLV);
