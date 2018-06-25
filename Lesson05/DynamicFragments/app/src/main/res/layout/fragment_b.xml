@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#5DAE57"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:textSize="32sp"
+        android:layout_gravity="center"
+        android:id="@+id/countFragB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</FrameLayout>
