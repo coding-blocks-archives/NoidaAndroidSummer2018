@@ -55,15 +55,14 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentH
                 public void onClick(View view) {
                     Student currentStudent = students.get(getAdapterPosition());
 //                    int currentPosition = getAdapterPosition();
-                    DetailFragment detailFragment = new DetailFragment();
 
-                    Bundle bundle = new Bundle();
 //                    bundle.putString("NAME",currentStudent.getName());
 //                    bundle.putString("BIO",currentStudent.getBio());
 //                    bundle.putString("URL",currentStudent.getImageUrl());
-                    bundle.putParcelable("STUDENT",currentStudent);
 
-                    detailFragment.setArguments(bundle);
+                    DetailFragment detailFragment = DetailFragment.newInstance(currentStudent);
+
+//                    DetailFragment detailFragment1 = new DetailFragment(currentStudent);
 
                     communicator.startFragmentB(detailFragment);
 //                    mainActivity.startFragmentDetail(new DetailFragment(currentStudent.getName(),currentStudent.getImageUrl(),currentStudent.getBio()));

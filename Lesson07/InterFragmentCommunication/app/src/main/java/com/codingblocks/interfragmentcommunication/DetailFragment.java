@@ -21,9 +21,16 @@ public class DetailFragment extends Fragment {
     public DetailFragment() {
     }
 
-//    public DetailFragment(Student student) {
-//        this.student = student;
-//    }
+    public static DetailFragment newInstance(Student s) {
+
+        Bundle args = new Bundle();
+        args.putParcelable("STUDENT", s);
+
+        DetailFragment fragment = new DetailFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 
 //    public DetailFragment(String name, String url, String bio) {
 //        this.name = name;

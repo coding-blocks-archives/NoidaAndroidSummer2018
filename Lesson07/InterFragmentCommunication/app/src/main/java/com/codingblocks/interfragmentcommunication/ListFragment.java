@@ -14,6 +14,15 @@ import android.view.ViewGroup;
 
 public class ListFragment extends Fragment {
 
+    public static ListFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        ListFragment fragment = new ListFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
