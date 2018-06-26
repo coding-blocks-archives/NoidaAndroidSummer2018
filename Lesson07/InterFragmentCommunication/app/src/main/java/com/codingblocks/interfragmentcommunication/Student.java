@@ -1,8 +1,12 @@
 package com.codingblocks.interfragmentcommunication;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Student {
+public class Student implements Parcelable{
 
     private String name, imageUrl, bio;
 
@@ -11,6 +15,24 @@ public class Student {
         this.imageUrl = imageUrl;
         this.bio = bio;
     }
+
+    protected Student(Parcel in) {
+        name = in.readString();
+        imageUrl = in.readString();
+        bio = in.readString();
+    }
+
+    public static final Creator<Student> CREATOR = new Creator<Student>() {
+        @Override
+        public Student createFromParcel(Parcel in) {
+            return new Student(in);
+        }
+
+        @Override
+        public Student[] newArray(int size) {
+            return new Student[size];
+        }
+    };
 
     public String getName() {
         return name;
@@ -66,5 +88,17 @@ public class Student {
                 "https://randomuser.me/api/portraits/women/93.jpg",
                 "Dwarka"));
        return studentArrayList;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(imageUrl);
+        parcel.writeString(bio);
     }
 }

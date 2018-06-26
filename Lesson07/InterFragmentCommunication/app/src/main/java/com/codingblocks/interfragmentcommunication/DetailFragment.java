@@ -16,11 +16,20 @@ import com.squareup.picasso.Picasso;
 public class DetailFragment extends Fragment {
     String name, url, bio;
 
-    public DetailFragment(String name, String url, String bio) {
-        this.name = name;
-        this.url = url;
-        this.bio = bio;
+    Student student;
+
+    public DetailFragment() {
     }
+
+//    public DetailFragment(Student student) {
+//        this.student = student;
+//    }
+
+//    public DetailFragment(String name, String url, String bio) {
+//        this.name = name;
+//        this.url = url;
+//        this.bio = bio;
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,6 +40,15 @@ public class DetailFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        Bundle bundle = getArguments();
+
+//        String name = bundle.getString("NAME");
+//        String bio = bundle.getString("BIO");
+//        String url = bundle.getString("URL");
+
+        Student student = (Student) bundle.getParcelable("STUDENT");
+
         TextView nameTv = view.findViewById(R.id.tvStudentNameDetail);
         TextView bioTv = view.findViewById(R.id.tvStudentDetails);
         ImageView imageView = view.findViewById(R.id.ivStudentImage);

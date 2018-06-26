@@ -2,6 +2,8 @@ package com.codingblocks.interfragmentcommunication;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity implements Communicator{
 
@@ -19,5 +21,8 @@ public class MainActivity extends AppCompatActivity implements Communicator{
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.containerDetailFragment, detailFragment)
                 .commit();
+
+//        FrameLayout frameLayout = findViewById(R.id.containerListFragment);
+//        frameLayout.setVisibility(View.GONE);
     }
 }

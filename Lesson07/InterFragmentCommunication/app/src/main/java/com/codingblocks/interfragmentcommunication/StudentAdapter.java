@@ -1,6 +1,7 @@
 package com.codingblocks.interfragmentcommunication;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -54,7 +55,17 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentH
                 public void onClick(View view) {
                     Student currentStudent = students.get(getAdapterPosition());
 //                    int currentPosition = getAdapterPosition();
-                    communicator.startFragmentB(new DetailFragment(currentStudent.getName(),currentStudent.getImageUrl(),currentStudent.getBio()));
+                    DetailFragment detailFragment = new DetailFragment();
+
+                    Bundle bundle = new Bundle();
+//                    bundle.putString("NAME",currentStudent.getName());
+//                    bundle.putString("BIO",currentStudent.getBio());
+//                    bundle.putString("URL",currentStudent.getImageUrl());
+                    bundle.putParcelable("STUDENT",currentStudent);
+
+                    detailFragment.setArguments(bundle);
+
+                    communicator.startFragmentB(detailFragment);
 //                    mainActivity.startFragmentDetail(new DetailFragment(currentStudent.getName(),currentStudent.getImageUrl(),currentStudent.getBio()));
                 }
             });
