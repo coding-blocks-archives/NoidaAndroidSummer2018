@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Counter Strike</string>
+    <string name="placeholder_text">Hello iPhone</string>
+    <string name="test_string">Test String</string>
+</resources>
