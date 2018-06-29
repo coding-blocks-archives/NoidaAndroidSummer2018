@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/edt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter the url"
+        android:layout_marginTop="20dp"
+        android:layout_weight="4"
+        android:layout_marginLeft="20dp"/>
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_toEndOf="@id/edt1"/>
+    </LinearLayout>
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll1"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>
