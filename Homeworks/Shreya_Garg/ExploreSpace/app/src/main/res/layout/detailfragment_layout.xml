@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/planets_bg"
     android:id="@+id/detailfragment"
@@ -40,13 +41,24 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
+        android:layout_weight="9"
+        android:fontFamily="cursive"
+        android:textSize="25sp"
+        android:textColor="#ffffff"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:background="@drawable/bgblack"
         android:id="@+id/detailtv"/>
     <android.support.design.widget.FloatingActionButton
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:layout_marginStart="280dp"
+        android:id="@+id/fabWiki"
+        android:background="@drawable/bgblack"
+        android:foreground="@drawable/wiki"
+        app:rippleColor="@color/colorPrimary"
+
         />
 
     

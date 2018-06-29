@@ -1,6 +1,5 @@
 package com.example.dell1.explorespace;
 
-import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,7 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.FrameLayout;
+
 
 
 public class MainActivity extends AppCompatActivity implements Communicator{
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements Communicator{
     }
 
     public void startFragmentDetail(Fragment detailFragment) {
-//       getSupportFragmentManager().beginTransaction().replace(R.id.viewPager,detailFragment).commit();
+      getSupportFragmentManager().beginTransaction().replace(R.id.detailfragment,detailFragment).commit();
 
     }
 
@@ -79,10 +78,10 @@ public class MainActivity extends AppCompatActivity implements Communicator{
 //            startActivity(i);
 //    }
 
-    public void switchContent(int id,Fragment fragment){
-        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-        ft.replace(id,fragment,fragment.toString());
-        ft.addToBackStack(null);
-        ft.commit();
-    }
+//    public void switchContent(int id,Fragment fragment){
+//        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+//        ft.replace(id,fragment,fragment.toString());
+//        ft.addToBackStack(null);
+//        ft.commit();
+//    }
 }

@@ -3,6 +3,7 @@ package com.example.dell1.explorespace;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -52,16 +53,33 @@ public class SpaceAdapter extends RecyclerView.Adapter<SpaceAdapter.ViewHolder> 
         return mvholder;
     }
     @Override
-    public void onBindViewHolder(@NonNull final SpaceAdapter.ViewHolder holder, int position){
+    public void onBindViewHolder(@NonNull SpaceAdapter.ViewHolder holder, int position){
 
             final Space currentplanetitem = arraylist.get(position);
             holder.itemName.setText(currentplanetitem.getName());
             Picasso.with(ctx).load(currentplanetitem.getImageUrl()).into(holder.imgUrl);
-            holder.itemName.setOnClickListener(new View.OnClickListener() {
+            if(ctx.getResources().getConfiguration().orientation== Configuration.ORIENTATION_PORTRAIT)
+            {holder.itemName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     Intent i=new Intent(ctx,DetailActivity.class);
                     i.putExtra("url",currentplanetitem.getImageUrl());
+                    int x=currentplanetitem.getType_item();
+                    switch (x){
+                        case 0:
+                            i.putExtra("type","PLANET");
+                            break;
+                        case 1:
+                            i.putExtra("type","STAR");
+                            break;
+                        case 2:
+                             i.putExtra("type","GALAXY");
+                            break;
+                    }
+                    i.putExtra("name",currentplanetitem.getName());
+                    i.putExtra("detail",currentplanetitem.getDetails());
+                    i.putExtra("wikiLink",currentplanetitem.getWikiUrl());
                     ctx.startActivity(i);
 //                     MainActivity mi=(MainActivity) view.getContext();
 //                     Space s=arraylist.get(holder.getAdapterPosition());
@@ -69,34 +87,42 @@ public class SpaceAdapter extends RecyclerView.Adapter<SpaceAdapter.ViewHolder> 
 //                     Log.e("TAG","onClick:"+s.getType_item() + " " + s.getName());
 //                    mi.startFragmentDetail(detailFragment);
 //                    mi.handleClick(s);
-                    fragmentJump(currentplanetitem);
+//             fragmentJump(currentplanetitem);
 
                 }
-            });
+            });}
+            if(ctx.getResources().getConfiguration().orientation==Configuration.ORIENTATION_LANDSCAPE){
+                holder.itemName.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        communicator.startFragmentDetail(DetailFragment.newInstance(currentplanetitem));
+                    }
+                });
+            }
 
 //            Space currentstaritem = Space.getSpaceArrayList(1).get(position);
 //            holder.itemName.setText(currentstaritem.getName());
 //            Picasso.with(ctx).load(currentstaritem.getImageUrl()).into(holder.imgUrl);
     }
-    DetailFragment mFragment;
-    Bundle mBundle;
-    public void fragmentJump(Space s){
-        mFragment=new DetailFragment();
-        mBundle=new Bundle();
-        mBundle.putParcelable("SPACE",s);
-        mFragment.setArguments(mBundle);
-        switchContent(R.id.fragmentcontainer,mFragment);
-    }
-    public void switchContent(int id,Fragment f){
-        if(ctx==null){
-            return;
-        }
-        if(ctx instanceof MainActivity){
-            MainActivity mi=(MainActivity) ctx;
-            Fragment frag=f;
-            mi.switchContent(id,frag);
-        }
-    }
+//    DetailFragment mFragment;
+//    Bundle mBundle;
+//    public void fragmentJump(Space s){
+//        mFragment=new DetailFragment();
+//        mBundle=new Bundle();
+//        mBundle.putParcelable("SPACE",s);
+//        mFragment.setArguments(mBundle);
+//        switchContent(R.id.fragmentcontainer,mFragment);
+//    }
+//    public void switchContent(int id,Fragment f){
+//        if(ctx==null){
+//            return;
+//        }
+//        if(ctx instanceof MainActivity){
+//            MainActivity mi=(MainActivity) ctx;
+//            Fragment frag=f;
+//            mi.switchContent(id,frag);
+//        }
+//    }
 
     @Override
     public int getItemCount() {

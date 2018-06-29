@@ -30,11 +30,11 @@ public class FragmentGalaxy extends Fragment {
         View view=inflater.inflate(R.layout.space_layout,container,false);
         Log.e("TAG","onGALAXY");
         
-        galaxyArrayList.add(new Space("MILKY WAY", "https://i.ytimg.com/vi/0La58bUNNzQ/maxresdefault.jpg", 2));
-        galaxyArrayList.add(new Space("CIGAR", "https://i.ytimg.com/vi/by3dy94-mw8/maxresdefault.jpg", 2));
-        galaxyArrayList.add(new Space("LMC", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/A_long-dead_star_DEM_L316A.jpg/220px-A_long-dead_star_DEM_L316A.jpg", 2));
-        galaxyArrayList.add(new Space("PINWHEEL", "https://apod.nasa.gov/apod/image/0303/m101_cfht.jpg", 2));
-        galaxyArrayList.add(new Space("HOAG'S","https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Hoag%27s_object.jpg/300px-Hoag%27s_object.jpg",2));
+        galaxyArrayList.add(new Space("MILKY WAY", "https://i.ytimg.com/vi/0La58bUNNzQ/maxresdefault.jpg", 2,"The descriptive \"milky\" is derived from the appearance from Earth of the galaxy – a band of light seen in the night sky formed from stars that cannot be individually distinguished by the naked eye.","https://en.wikipedia.org/wiki/Milky_Way"));
+        galaxyArrayList.add(new Space("CIGAR", "https://i.ytimg.com/vi/by3dy94-mw8/maxresdefault.jpg", 2,"For more info click button","https://en.wikipedia.org/wiki/Messier_82"));
+        galaxyArrayList.add(new Space("LMC", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/A_long-dead_star_DEM_L316A.jpg/220px-A_long-dead_star_DEM_L316A.jpg", 2,"For more info click button","https://en.wikipedia.org/wiki/Large_Magellanic_Cloud"));
+        galaxyArrayList.add(new Space("PINWHEEL", "https://apod.nasa.gov/apod/image/0303/m101_cfht.jpg", 2,"For more info click button","https://en.wikipedia.org/wiki/Pinwheel_Galaxy"));
+        galaxyArrayList.add(new Space("HOAG'S","https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Hoag%27s_object.jpg/300px-Hoag%27s_object.jpg",2,"For more info click button","https://en.wikipedia.org/wiki/Hoag%27s_Object"));
         
         rv=view.findViewById(R.id.space_list_rv);
         LinearLayoutManager llm=new LinearLayoutManager(getContext());

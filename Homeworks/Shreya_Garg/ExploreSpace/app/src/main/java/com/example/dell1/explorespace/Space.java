@@ -7,7 +7,7 @@ import android.os.Parcelable;
 
 public class Space implements Parcelable {
 
-    private String name, imageUrl;
+    private String name, imageUrl,details,wikiUrl;
 
     private int type_item;
 
@@ -15,6 +15,8 @@ public class Space implements Parcelable {
         name = in.readString();
         imageUrl = in.readString();
         type_item = in.readInt();
+        details=in.readString();
+        wikiUrl=in.readString();
     }
 
     public static final Creator<Space> CREATOR = new Creator<Space>() {
@@ -29,10 +31,12 @@ public class Space implements Parcelable {
         }
     };
 
-    public Space(String name, String imageUrl, int type_item) {
+    public Space(String name, String imageUrl, int type_item,String details,String wikiUrl) {
         this.name = name;
         this.imageUrl = imageUrl;
         this.type_item = type_item;
+        this.details=details;
+        this.wikiUrl=wikiUrl;
     }
 
 
@@ -48,6 +52,14 @@ public class Space implements Parcelable {
         return type_item;
     }
 
+    public String getDetails() {
+        return details;
+    }
+
+    public String getWikiUrl() {
+        return wikiUrl;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -58,5 +70,8 @@ public class Space implements Parcelable {
         parcel.writeString(name);
         parcel.writeString(imageUrl);
         parcel.writeInt(type_item);
+        parcel.writeString(details);
+        parcel.writeString(wikiUrl);
+
     }
 }
