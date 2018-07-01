@@ -108,8 +108,8 @@ public class SecondActivity extends AppCompatActivity {
                     .resize(250, 250)
                     .error(R.drawable.ic_wallpaper)
                     .into(ivUser);
-
-            try {
+    //The Problem is from this part of the code to the line number 145
+         /*   try {
                 URL url = new URL(userDetail.repos_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
@@ -142,7 +142,7 @@ public class SecondActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
+*/
         }
     }
 
