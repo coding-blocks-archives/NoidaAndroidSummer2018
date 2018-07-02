@@ -12,6 +12,7 @@
         <EditText
             android:id="@+id/etInput"
             android:singleLine="true"
+            android:layout_margin="3dp"
             android:background="@drawable/border"
             android:layout_width="0dp"
             android:hint="Enter here"
@@ -19,6 +20,7 @@
             android:layout_weight="13"/>
         <Button
             android:layout_width="50dp"
+            android:layout_margin="3dp"
             android:id="@+id/btnGo"
             android:textStyle="bold"
             android:text="GO->"

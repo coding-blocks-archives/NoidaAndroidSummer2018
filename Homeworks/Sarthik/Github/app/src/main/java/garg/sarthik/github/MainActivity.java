@@ -32,13 +32,25 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText etUser = findViewById(R.id.etInput);
         Button btn = findViewById(R.id.btnGo);
+        final String[] Input = new String[1];
+
+
+        Log.e("TAG", "INPUT= "+ Input[0]);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(etUser.getText().toString().contains(" "))
+                {   Input[0] = "https://api.github.com/search/users?q=" + etUser.getText().toString().replace(" ","%20");
+                    Log.e("TAG", "onCreate: IF"+ Input[0]);
+                }
+                else
+                {   Input[0] = "https://api.github.com/search/users?q=" + etUser.getText().toString();
+                    Log.e("TAG", "onCreate: ELSE"+ Input[0]);
+                }
                 Mygithub mygithub = new Mygithub();
-                mygithub.execute("https://api.github.com/search/users?q="+etUser.getText().toString());
+                mygithub.execute(Input[0]);
             }
         });
     }

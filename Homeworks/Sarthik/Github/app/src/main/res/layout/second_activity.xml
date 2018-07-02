@@ -8,7 +8,7 @@
         android:id="@+id/ivUserImage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"/>
+        android:layout_weight="3"/>
     <TextView
         android:id="@+id/tvUserName"
         android:layout_width="match_parent"
@@ -29,9 +29,10 @@
         android:layout_weight="1"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="30dp"
+        android:background="@drawable/listborder"
+        android:layout_marginTop="10dp"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="2">
 
         <TextView
             android:text="BIO:"
@@ -41,23 +42,18 @@
             android:layout_height="match_parent"
             android:layout_weight="2"/>
 
-    <!--<ScrollView-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="12"-->
-        <!--android:fillViewport="true">-->
         <TextView
             android:id="@+id/tvUserBio"
             android:layout_width="0dp"
             android:textSize="15sp"
+            android:scrollbars="vertical"
             android:layout_height="match_parent"
             android:layout_weight="12"/>
-
-    <!--</ScrollView>-->
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/listborder"
         android:layout_height="0dp"
         android:layout_weight="1">
 
@@ -78,6 +74,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/listborder"
         android:layout_height="0dp"
         android:layout_weight="1">
 
@@ -99,6 +96,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@drawable/listborder"
         android:layout_weight="1">
 
         <TextView

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -89,6 +90,7 @@ public class SecondActivity extends AppCompatActivity {
             tvName = findViewById(R.id.tvUserName);
             tvLogin = findViewById(R.id.tvUserLogin);
             tvBio = findViewById(R.id.tvUserBio);
+            tvBio.setMovementMethod(new ScrollingMovementMethod());
             tvCompany = findViewById(R.id.tvUserCompany);
             tvBlog = findViewById(R.id.tvUserBlog);
             tvLocation = findViewById(R.id.tvUserLocation);
@@ -108,41 +110,12 @@ public class SecondActivity extends AppCompatActivity {
                     .resize(250, 250)
                     .error(R.drawable.ic_wallpaper)
                     .into(ivUser);
+
+            ReposSync reposSync = new ReposSync();
+            reposSync.execute(userDetail.getRepos_url().toString());
+
     //The Problem is from this part of the code to the line number 145
-         /*   try {
-                URL url = new URL(userDetail.repos_url);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
-                InputStream inputStream = httpURLConnection.getInputStream();
-                Scanner scanner = new Scanner(inputStream);
-                scanner.useDelimiter("\\A");
-                String result = "";
-
-                if(scanner.hasNext())
-                {
-                    result = scanner.next();
-                }
-                JSONArray jsonArray = new JSONArray(result);
-                ArrayList<ReposDetail> reposDetails = new ArrayList<>();
-                for(int i = 0; i < jsonArray.length() ; i++)
-                {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    String name = jsonObject.getString("name");
-                    String full_name = jsonObject.getString("full_name");
-                    reposDetails.add(new ReposDetail(name,full_name));
-                }
-
-                UserAdaptor userAdaptor = new UserAdaptor(SecondActivity.this,reposDetails);
-                rvUserList.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-                rvUserList.setAdapter(userAdaptor);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-*/
         }
     }
 
@@ -162,6 +135,69 @@ public class SecondActivity extends AppCompatActivity {
             return new user_detail(avatar_url,name,login,bio,location,company,blog,repos_url);
 
         } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    private class ReposSync extends AsyncTask<String,Void,String> {
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            ArrayList<ReposDetail> reposDetails = convertJSON2(s);
+            UserAdaptor userAdaptor = new UserAdaptor(SecondActivity.this,reposDetails);
+            rvUserList.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+            rvUserList.setAdapter(userAdaptor);
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            String s = strings[0];
+            URL url;
+            try {
+                url = new URL(s);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+
+                InputStream inputStream = httpURLConnection.getInputStream();
+                Scanner scanner = new Scanner(inputStream);
+                scanner.useDelimiter("\\A");
+                String result = "";
+
+                if(scanner.hasNext())
+                {
+                    result = scanner.next();
+                }
+
+                return result;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return "";
+        }
+
+    }
+
+    private ArrayList<ReposDetail> convertJSON2(String s) {
+
+        try {
+
+            JSONArray jsonArray = new JSONArray(s);
+            ArrayList<ReposDetail> reposDetails = new ArrayList<>();
+            for(int i = 0; i < jsonArray.length() ; i++)
+            {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String name = jsonObject.getString("name");
+                String full_name = jsonObject.getString("full_name");
+                reposDetails.add(new ReposDetail(name,full_name));
+            }
+
+            return reposDetails;
+
+
+        }  catch (JSONException e) {
             e.printStackTrace();
         }
 
