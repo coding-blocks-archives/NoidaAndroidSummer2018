@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    android:id="@+id/detailLinearLayout"
+    android:layout_marginEnd="16dp">
+
+
+
+    
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:background="#03A9F4"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/detailImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FFFFFF"
+        android:layout_gravity="center"/>
+    
+    
+    <TextView
+        android:background="@color/colorAccent"
+        android:textSize="18sp"
+        android:id="@+id/nameView"
+        android:text="name"
+        android:textColor="@android:color/white"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+
+        android:textColor="@android:color/white"
+
+        android:background="@color/colorAccent"
+        android:id="@+id/jobView"
+        android:text="job"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:paddingBottom="8dp"
+        android:layout_marginBottom="16dp"/>
+
+
+
+
+    <TextView
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/secondaryText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="EMAIL"/>
+
+    <TextView
+        android:id="@+id/emailView"
+        android:text="emailView"
+        android:textColor="@color/primaryText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dividerColor"
+        android:layout_marginBottom="8dp"
+        />
+
+    <TextView
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/secondaryText"
+        android:textSize="14sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOCATION"/>
+
+
+    <TextView
+        android:textColor="@color/primaryText"
+
+        android:id="@+id/locationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="location"
+        android:layout_marginBottom="8dp"
+        android:textSize="16sp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dividerColor"
+        android:layout_marginBottom="8dp"
+        />
+
+     <TextView
+         android:textColor="@color/secondaryText"
+         android:fontFamily="sans-serif-condensed"
+         android:textSize="14sp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="BIO"/>
+    <TextView
+        android:id="@+id/bioView"
+        android:text="bioView"
+        android:textColor="@color/primaryText"
+         android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:id="@+id/gsearch"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_search"/>
+
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:id="@+id/twitter"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_twitter"/>
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+</LinearLayout>
+
+</ScrollView>
