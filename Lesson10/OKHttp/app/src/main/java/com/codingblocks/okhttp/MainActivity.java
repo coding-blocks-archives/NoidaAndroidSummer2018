@@ -2,23 +2,25 @@ package com.codingblocks.okhttp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+//    https://pokeapi.co/
 
     public static final MediaType JSON
             = MediaType.parse("application/json");
@@ -43,11 +45,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void makeNetworkCall(String url) {
+    private void makeNetworkCall(final String url) {
         //Make the network call here
         OkHttpClient okHttpClient = new OkHttpClient();
 
-//        RequestBody body = RequestBody.create(JSON, );
+//        RequestBody body = RequestBody.create(JSON,"{ hello : world }");
 
         final Request request = new Request.Builder()
                 .url(url)
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
 //        try {
-//            Response response = okHttpClient.newCall(request).execute();
+//            APIResponse response = okHttpClient.newCall(request).execute();
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
@@ -75,14 +77,24 @@ public class MainActivity extends AppCompatActivity {
 
                 //string() != toString()
 
-                //Response implements a closeable, so you can read from it only once!
+                //APIResponse implements a closeable, so you can read from it only once!
 //                Log.e("TAG", "onResponse: " + response.body().string());
                 final String result = response.body().string();
+
+                final Gson gson = new Gson();
+                final APIResponse apiResponse = gson.fromJson(result, APIResponse.class);
 
                 (MainActivity.this).runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        textView.setText(result);
+
+                        ArrayList<User> users = apiResponse.getItems();
+                        User firstUser = users.get(0);
+                        String loginOfFirstUser = firstUser.getLogin();
+
+//                        String firstUserToJson = gson.toJson(firstUser);
+
+                        textView.setText(loginOfFirstUser);
                     }
                 });
 
