@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">note taking app</string>
+    <string name="edittexthint">enter your notes here!</string>
+    <string name="add">ADD</string>
+    <string name="remove">REMOVE</string>
+</resources>

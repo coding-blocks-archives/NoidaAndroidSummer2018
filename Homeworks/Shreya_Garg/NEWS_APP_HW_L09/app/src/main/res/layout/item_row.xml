@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    android:background="#80d8ff"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_margin="2dp"
+        android:background="#000000"
+        />
+    <TextView
+        android:id="@+id/newstitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="serif"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:hint="HELLO WORL"
+
+        />
+    <TextView
+        android:id="@+id/newsauthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newstitle"
+        android:layout_marginTop="2dp"
+        android:textSize="18sp"
+        android:textStyle="italic|normal"
+        android:hint="author"
+        />
+    <TextView
+        android:id="@+id/newspublishdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newstitle"
+        android:layout_marginTop="2dp"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@id/newsauthor"
+        android:layout_marginStart="220dp"
+        android:hint="28 June 2018"/>
+
+    <ImageView
+        android:id="@+id/newsimage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newspublishdate"
+        android:layout_marginTop="2dp"
+        android:contentDescription="hello image here"
+        />
+    <TextView
+        android:id="@+id/newsdescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_below="@id/newsimage"
+        android:textSize="25sp"
+        android:text="ehhhhhh"
+        android:textColor="#000000"
+        android:textStyle="normal"
+        android:fontFamily="cursive"
+        android:layout_marginStart="1.5dp"
+        android:layout_marginEnd="1.5dp"
+        android:layout_marginBottom="1dp"
+        />
+    <TextView
+        android:id="@+id/newslink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newsdescription"
+        android:hint="link here"
+        android:textSize="17sp"
+        android:textStyle="normal"
+        android:focusable="true"
+        android:textColor="@color/colorPrimaryDark"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@id/newslink"
+        android:layout_margin="2dp"
+
+        android:background="#000000"
+
+        />
+
+
+</RelativeLayout>
