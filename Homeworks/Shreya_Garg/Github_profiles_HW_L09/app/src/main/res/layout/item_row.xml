@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="horizontal"
+    android:layout_margin="3dp"
+    android:layout_gravity="center"
+    android:background="#ffff00">
+
+    <ImageView
+        android:id="@+id/userImage_iv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:layout_margin="6dp"
+        android:contentDescription="user image here"
+        />
+
+    <TextView
+        android:id="@+id/userid_tv"
+        android:gravity="fill_horizontal"
+        android:hint="Enter username here"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:fontFamily="casual"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="15"
+        android:layout_margin="10dp"/>
+
+</LinearLayout>
