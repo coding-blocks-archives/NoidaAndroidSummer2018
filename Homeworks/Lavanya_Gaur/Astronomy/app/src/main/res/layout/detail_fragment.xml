@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:hint="dsds"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:fontFamily="serif-monospace"
+        android:layout_gravity="center_horizontal"
+        android:textSize="32sp"
+        android:id="@+id/typespacetv"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:id="@+id/spaceimg"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:hint="sdsdsd"
+        android:textSize="32sp"
+        android:textColor="#ffffff"
+
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:fontFamily="serif-monospace"
+        android:id="@+id/nametv"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:hint="sdsdsd"
+        android:textSize="25sp"
+        android:textColor="#ffffff"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+
+        android:id="@+id/detailtv"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabwiki"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:layout_marginStart="280dp"
+        app:rippleColor="@color/colorPrimary"
+        app:srcCompat="@android:drawable/ic_input_add"/>
+        <!--android:clickable="true"-->
+
+
+
+</LinearLayout>
