@@ -34,14 +34,26 @@ public class ThirdActivity extends AppCompatActivity implements Serializable {
         TextView abilitytext = findViewById(R.id.abilitytext);
         TextView statstext = findViewById(R.id.statstext);
         TextView movestext = findViewById(R.id.movestext);
-        ArrayList<Stats> statsArrayList= (ArrayList<Stats>) i.getSerializableExtra("ArrayStats");
-        ArrayList<Moves> movesArrayList = (ArrayList<Moves>) i.getSerializableExtra("ArrayMoves");
+        final ArrayList<Stats> statsArrayList= (ArrayList<Stats>) i.getSerializableExtra("ArrayStats");
+        final ArrayList<Moves> movesArrayList = (ArrayList<Moves>) i.getSerializableExtra("ArrayMoves");
         final ArrayList<Abilities> abilitiesArrayList = (ArrayList<Abilities>) i.getSerializableExtra("ArrayAbilities");
 
         stats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(getBaseContext(),FourthActivity.class);
+                i.putExtra("Display", statsArrayList);
+                i.putExtra("num","2");
+                startActivity(i);
+            }
+        });
+        statstext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getBaseContext(),FourthActivity.class);
+                i.putExtra("Display", statsArrayList);
+                i.putExtra("num","2");
+                startActivity(i);
             }
         });
 
@@ -49,7 +61,17 @@ public class ThirdActivity extends AppCompatActivity implements Serializable {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getBaseContext(),FourthActivity.class);
-                i.putExtra("Display",(Serializable) abilitiesArrayList);
+                i.putExtra("Display", abilitiesArrayList);
+                i.putExtra("num","1");
+                startActivity(i);
+            }
+        });
+        abilitytext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getBaseContext(),FourthActivity.class);
+                i.putExtra("Display", abilitiesArrayList);
+                i.putExtra("num","1");
                 startActivity(i);
             }
         });
@@ -57,7 +79,19 @@ public class ThirdActivity extends AppCompatActivity implements Serializable {
         moves.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(getBaseContext(),FourthActivity.class);
+                i.putExtra("Display", movesArrayList);
+                i.putExtra("num","3");
+                startActivity(i);
+            }
+        });
+        movestext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getBaseContext(),FourthActivity.class);
+                i.putExtra("Display", movesArrayList);
+                i.putExtra("num","3");
+                startActivity(i);
             }
         });
 

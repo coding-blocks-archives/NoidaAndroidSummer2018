@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="100sp"
+    android:layout_height="80sp"
     android:orientation="vertical"
     android:layout_margin="4sp"
-    android:background="@drawable/details">
+    >
 
     <TextView
-        android:id="@+id/text"
+        android:textColor="#000000"
+        android:id="@+id/textDisplay"
         android:textSize="42sp"
-        android:text="Text"
+        android:layout_centerInParent="true"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
 </RelativeLayout>

@@ -119,9 +119,9 @@ public class SecondActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(getBaseContext(), ThirdActivity.class);
-                                intent.putExtra("ArrayStats", (Serializable) pokemon.getStats());
-                                intent.putExtra("ArrayMoves", (Serializable) pokemon.getMoves());
-                                intent.putExtra("ArrayAbilities", (Serializable) pokemon.getAbilities());
+                                intent.putExtra("ArrayStats",  pokemon.getStats());
+                                intent.putExtra("ArrayMoves",  pokemon.getMoves());
+                                intent.putExtra("ArrayAbilities", pokemon.getAbilities());
                                 startActivity(intent);
                             }
                         });

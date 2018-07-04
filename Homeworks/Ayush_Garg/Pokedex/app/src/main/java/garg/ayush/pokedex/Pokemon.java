@@ -2,10 +2,9 @@ package garg.ayush.pokedex;
 
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Pokemon implements Serializable {
+public class Pokemon {
 
 
     ArrayList<Abilities> abilities;
