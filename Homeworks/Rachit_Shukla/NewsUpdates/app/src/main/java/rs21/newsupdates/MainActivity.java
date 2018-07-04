@@ -121,16 +121,11 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             final Result result = convertJsonToResponse(s);
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    RecyclerView rv = findViewById(R.id.list);
-                    rv.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-                    rv.setHasFixedSize(true);
-                    NewsAdaptor Adapter = new NewsAdaptor(getBaseContext(), result.getArticles());
-                    rv.setAdapter(Adapter);
-                }
-            });
+            RecyclerView rv = findViewById(R.id.list);
+            rv.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+//            rv.setHasFixedSize(true);
+            NewsAdaptor Adapter = new NewsAdaptor(getBaseContext(), result.getArticles());
+            rv.setAdapter(Adapter);
         }
     }
 }
