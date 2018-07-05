@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.URL;
 
@@ -27,6 +29,10 @@ public class MyPostReceiver extends BroadcastReceiver {
 
         User user = intent.getParcelableExtra("KEY");
 
+        Gson gson = new Gson();
+
+        String userJson = gson.toJson(user);
+
 //        URL we will post the data to
         String postUrl = "http://ptsv2.com/t/xzrak-1530787550/post";
 
@@ -36,7 +42,7 @@ public class MyPostReceiver extends BroadcastReceiver {
         MediaType mediaType = MediaType.parse("application/json");
 
 //        Create a RequestBody object with the data and the mediatype
-        RequestBody requestBody = RequestBody.create(mediaType,"{ hello : world } " );
+        RequestBody requestBody = RequestBody.create(mediaType,userJson );
 
         Request request = new Request.Builder()
                 .url(postUrl)
