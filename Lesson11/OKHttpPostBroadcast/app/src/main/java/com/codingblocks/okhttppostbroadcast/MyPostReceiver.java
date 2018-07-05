@@ -25,9 +25,7 @@ public class MyPostReceiver extends BroadcastReceiver {
 //        This always runs on the UI thread of the app that you are currently using
 //        So be sure to start a new thread for any blocking operation
 
-        Uri uri = intent.getData();
-
-        String receivedUri = uri.toString();
+        User user = intent.getParcelableExtra("KEY");
 
 //        URL we will post the data to
         String postUrl = "http://ptsv2.com/t/xzrak-1530787550/post";
@@ -35,10 +33,10 @@ public class MyPostReceiver extends BroadcastReceiver {
         OkHttpClient okHttpClient = new OkHttpClient();
 
 //        Define the type of file that the server should expect
-        MediaType mediaType = MediaType.parse("text/plain");
+        MediaType mediaType = MediaType.parse("application/json");
 
 //        Create a RequestBody object with the data and the mediatype
-        RequestBody requestBody = RequestBody.create(mediaType,receivedUri);
+        RequestBody requestBody = RequestBody.create(mediaType,"{ hello : world } " );
 
         Request request = new Request.Builder()
                 .url(postUrl)

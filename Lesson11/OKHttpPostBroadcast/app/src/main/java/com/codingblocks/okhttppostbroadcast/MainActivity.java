@@ -21,9 +21,8 @@ public class MainActivity extends AppCompatActivity {
                 User user = new User("example@email.com", "********");
                 //Start the broadcast with some data
                 Intent i = new Intent(getBaseContext(),MyPostReceiver.class);
-//                i.putExtra("KEY",user);
 
-                i.setData(Uri.parse("https://www.google.com"));
+                i.putExtra("KEY",user);
 
                 sendBroadcast(i);
             }
