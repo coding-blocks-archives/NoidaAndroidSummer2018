@@ -27,6 +27,12 @@ public class MyPostReceiver extends BroadcastReceiver {
 //        This always runs on the UI thread of the app that you are currently using
 //        So be sure to start a new thread for any blocking operation
 
+
+//        Prevents the System from killing this broadcast receiver
+//        But never do any long running tasks in the receiver, instead fire a
+//        service and do the long running task in there
+        final PendingResult pendingResult = goAsync();
+
         User user = intent.getParcelableExtra("KEY");
 
         Gson gson = new Gson();
@@ -59,7 +65,9 @@ public class MyPostReceiver extends BroadcastReceiver {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                Toast.makeText(context, response.body().string(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, response.body().string(), Toast.LENGTH_SHORT).show();
+                //Kill the broadcast after the work is done
+                pendingResult.finish();
             }
         });
     }
