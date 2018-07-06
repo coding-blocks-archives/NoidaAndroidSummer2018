@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+g
         final MyReceiver myReceiver = new MyReceiver();
 
         final IntentFilter intentFilter = new IntentFilter();
