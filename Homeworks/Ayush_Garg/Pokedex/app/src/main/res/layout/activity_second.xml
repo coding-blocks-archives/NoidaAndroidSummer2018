@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/navigation"
+    tools:context=".SecondActivity">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/btnLft"
+        android:layout_width="55dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/btnRgt"
+        android:layout_toStartOf="@+id/btnRgt"
+        tools:layout_editor_absoluteX="278dp"
+        tools:layout_editor_absoluteY="49dp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/btnRgt"
+        android:layout_width="55dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="63dp"
+        android:layout_marginTop="52dp"
+        tools:layout_editor_absoluteX="278dp"
+        tools:layout_editor_absoluteY="49dp" />
+
+    <ImageView
+
+        android:id="@+id/image"
+        android:layout_width="259dp"
+        android:layout_height="310dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="157dp"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+    <TextView
+        android:textColor="#000000"
+        android:id="@+id/name"
+        android:layout_width="343dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="158dp"
+        android:layout_marginStart="0dp"
+        android:gravity="center"
+        android:textSize="38sp" />
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/name"
+        android:layout_marginBottom="110dp"
+        android:gravity="center"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="45sp"
+        android:layout_marginEnd="74dp"
+        android:background="#FF09F4D8"
+        android:text="Info"
+        android:textSize="22sp" />
+</RelativeLayout>

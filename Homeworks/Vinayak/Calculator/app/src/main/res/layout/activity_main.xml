@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/resultTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+         />
+
+    <EditText
+        android:id="@+id/num1Et"
+        android:inputType="number"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/resultTv"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/operationSignTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/resultTv"
+        android:layout_alignTop="@id/num1Et"
+        android:layout_marginTop="16dp"
+        />
+
+    <EditText
+        android:id="@+id/num2Et"
+        android:focusedByDefault="true"
+        android:inputType="number"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/resultTv"
+        android:layout_below="@id/resultTv"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"/>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:onClick="compute"
+        android:text="+"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/num1Et"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="4dp"
+        />
+
+    <Button
+        android:id="@+id/btnMinus"
+        android:onClick="compute"
+        android:text="-"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/btnAdd"
+        android:layout_below="@id/num1Et"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="8dp"/>
+
+    <Button
+        android:id="@+id/btnMultiply"
+        android:onClick="compute"
+        android:text="x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/btnMinus"
+        android:layout_below="@id/num1Et"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="8dp"/>
+
+    <Button
+        android:id="@+id/btnDivide"
+        android:onClick="compute"
+        android:text="/"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/btnMultiply"
+        android:layout_below="@id/num1Et"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="8dp"/>
+
+    <Button
+        android:id="@+id/num7"
+        android:onClick="append"
+        android:text="7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnAdd"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/num8"
+        android:onClick="append"
+        android:text="8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnAdd"
+        android:layout_toEndOf="@id/num7"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/num9"
+        android:onClick="append"
+        android:text="9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnAdd"
+        android:layout_toEndOf="@id/num8"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/num4"
+        android:onClick="append"
+        android:text="4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/num7"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/num5"
+        android:onClick="append"
+        android:text="5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/num7"
+        android:layout_toEndOf="@id/num4"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/num6"
+        android:onClick="append"
+        android:text="6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/num7"
+        android:layout_toEndOf="@id/num5"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/num1"
+        android:onClick="append"
+        android:text="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/num4"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/num2"
+        android:onClick="append"
+        android:text="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/num5"
+        android:layout_toEndOf="@id/num1"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/num3"
+        android:onClick="append"
+        android:text="3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/num6"
+        android:layout_toEndOf="@id/num2"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/num0"
+        android:onClick="append"
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/num2"
+        android:layout_toEndOf="@id/num1"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnEquals"
+        android:onClick="dispResult"
+        android:text="="
+        android:layout_width="wrap_content"
+        android:layout_height="160dp"
+        android:layout_below="@id/btnDivide"
+        android:layout_toEndOf="@id/num9"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="8sp"
+    tools:context=".ActivityDetail">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_detail_image"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/fragment_detail_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Name"
+        android:textSize="42sp" />
+
+
+    <TextView
+        android:id="@+id/fragment_detail_description"
+        android:layout_width="match_parent"
+        android:layout_height="214dp"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="For More Information Click Here" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@android:drawable/ic_menu_search" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
