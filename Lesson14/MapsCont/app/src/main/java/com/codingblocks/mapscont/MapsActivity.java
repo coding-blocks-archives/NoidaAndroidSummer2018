@@ -76,7 +76,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         //Create a polyline options, i.e. an open polygon
         PolylineOptions polylineOptions = new PolylineOptions()
-                .add(sydney, delhi, antarctica);
+                .add(sydney, delhi, antarctica)
+                .color(getResources().getColor(R.color.colorAccent));
 
         //Create a circle option, used to draw circle on the map
         CircleOptions circleOptions = new CircleOptions()
@@ -108,6 +109,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // and 25 meters of distance travelled
 
         LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
                 10000,
                 25,
@@ -145,7 +147,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onLocationChanged(Location location) {
-
         //Create a new LatLng and draw a Polyline to this position on the map
 
     }
