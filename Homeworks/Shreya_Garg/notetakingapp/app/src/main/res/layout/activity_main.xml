@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b3e5fc"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/et1"
+        android:inputType="text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edittexthint"
+        android:textSize="25sp"
+        android:ems="10"
+        android:layout_marginStart="2dp"
+        />
+
+    <Button
+        android:id="@+id/addbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/et1"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/et1"
+        android:text="@string/add"
+        android:padding="2dp"
+        />
+    <ListView
+        android:id="@+id/listviewmain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/addbtn"
+        android:padding="5dp"
+    />
+
+
+</RelativeLayout>

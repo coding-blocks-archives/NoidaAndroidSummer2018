@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/detail_img"
+        />
+
+    <TextView
+        android:id="@+id/detail_name"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:textStyle="bold|normal"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        android:fontFamily="serif"
+        android:hint="username"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/detail_id"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:fontFamily="sans-serif"
+        android:hint="id here"
+        android:gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/detail_link"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:textColor="#ffff00"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif"
+        android:hint="link here"
+        android:gravity="center_horizontal"/>
+
+</LinearLayout>

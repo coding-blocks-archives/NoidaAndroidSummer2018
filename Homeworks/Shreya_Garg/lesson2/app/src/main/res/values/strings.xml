@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">lesson2</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="reset">RESET</string>
+    <string name="COUNT">COUNT</string>
+</resources>

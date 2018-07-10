@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WhatsAppChatPage</string>
+    <string name="chats">CHATS</string>
+    <string name="person_name">Person Name</string>
+    <string name="_21_14">21:14</string>
+    <string name="last_message">Last message</string>
+    <string name="status">STATUS</string>
+    <string name="calls">CALLS</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:id="@+id/fragmentcointainer"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:background="#f1a979"
+        android:layout_height="match_parent">
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
+            android:background="#dff179"
+            android:layout_height="50dp">
+            </android.support.design.widget.TabLayout>
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/detailfragmentcointainer"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:background="#ede5b1"
+        android:layout_height="match_parent"/>
+
+
+
+</LinearLayout>
