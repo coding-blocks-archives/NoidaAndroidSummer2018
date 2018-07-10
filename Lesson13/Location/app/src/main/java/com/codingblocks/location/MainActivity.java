@@ -53,10 +53,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 //            Location location = locationManager
 //                    .getLastKnownLocation(LocationManager.GPS_PROVIDER);
         } else {
-            Location lastKnownLocation = locationManager.
-                    getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            //If the provider is disabled, then that means the location toggle on user's
+            // device is disabled, so show a toast asking the user to enable it
+            if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                addLocationListeners();
+            } else {
+                Toast.makeText(this, "Looks like your location is disabled, please enable it for the app to run", Toast.LENGTH_SHORT).show();
+            }
 
-            addLocationListeners();
         }
 //        locationManager.addProximityAlert();
 //        requestPermissions(new String[]{Manifest.permission.CALL_PHONE},12);
@@ -76,7 +80,15 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED &&
                     grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                addLocationListeners();
+
+                //Write a check to see if the user has enabled location or not
+
+                if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                    addLocationListeners();
+                } else {
+                    Toast.makeText(this, "Looks like your location is disabled, please enable it for the app to run", Toast.LENGTH_SHORT).show();
+                }
+
                 Toast.makeText(this, "Thank you for granting the permissions!", Toast.LENGTH_SHORT).show();
                 //Now we have the permission, so do the actual processing here
 
@@ -120,10 +132,29 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     @SuppressLint("MissingPermission")
     public void addLocationListeners() {
+
+        //Gives the last known location (can be null)
+        Location lastKnownLocation = locationManager.
+                getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+        //Only fires the LocationListener callback once
+        locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER,
+                this,
+                null);
+
+        //Will fire the locationlistener callack multiple times
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
                 5000,
                 10,
                 this);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //Removes the listener for location related events,
+        //Ideally this should be done when your app no longer needs access
+        //to the user's location
+        locationManager.removeUpdates(this);
+    }
 }
