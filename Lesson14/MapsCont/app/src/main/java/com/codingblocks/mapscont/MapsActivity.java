@@ -1,7 +1,12 @@
 package com.codingblocks.mapscont;
 
+import android.annotation.SuppressLint;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -10,12 +15,15 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerDragListener {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback,
+        GoogleMap.OnMarkerDragListener,
+        LocationListener {
 
     //    //This is Hungarian notation, don't use it
     private GoogleMap mMap;
@@ -42,9 +50,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+
     @Override
     public void onMapReady(final GoogleMap googleMap) {
         mMap = googleMap;
+
+        attachLocationListener();
+
+        googleMap.setMapStyle(MapStyleOptions
+                .loadRawResourceStyle(this, R.raw.map_style));
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
@@ -61,7 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //Create a polyline options, i.e. an open polygon
         PolylineOptions polylineOptions = new PolylineOptions()
-                .add(sydney,delhi,antarctica);
+                .add(sydney, delhi, antarctica);
 
         //Create a circle option, used to draw circle on the map
         CircleOptions circleOptions = new CircleOptions()
@@ -86,6 +101,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        googleMap.animateCamera(CameraUpdateFactory.zoomIn());
     }
 
+    @SuppressLint("MissingPermission")
+    private void attachLocationListener() {
+        //Get access to the LocationManager object
+        //Request location updates from the GPS provider for every 10 seconds
+        // and 25 meters of distance travelled
+
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                10000,
+                25,
+                this);
+    }
 
     @Override
     public void onMarkerDragStart(Marker marker) {
@@ -114,5 +141,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng endLatLng = marker.getPosition();
         mMap.animateCamera(CameraUpdateFactory
                 .newLatLngZoom(endLatLng, 10.0f));
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+        //Create a new LatLng and draw a Polyline to this position on the map
+
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
     }
 }
