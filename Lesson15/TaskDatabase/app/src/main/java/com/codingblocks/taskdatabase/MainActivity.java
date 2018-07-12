@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.codingblocks.taskdatabase.db.TaskDb;
 import com.codingblocks.taskdatabase.models.Task;
@@ -19,43 +21,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        taskDb = new TaskDb(this);
+        Button btnInsert = findViewById(R.id.btnInsert);
+        taskDb = new TaskDb(getBaseContext());
 
-        Task task = new Task(System.currentTimeMillis(), "Hello World");
+        btnInsert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Task task = new Task(System.currentTimeMillis(),
+                        "Hello World, the time is " + System.currentTimeMillis());
+                long position = taskDb.insertTask(task);
+                Log.e("TAG", "onCreate: task inserted at position" + position);
+            }
+        });
 
-        long position = insertTask(task);
+        Log.e("TAG", "onCreate: data size " + fetchTasks()
+                .get(16).getTitle());
 
-        Log.e("TAG", "onCreate: task inserted at position" + position );
+        Log.e("TAG", "onCreate: cursor with id 1531395872943" + taskDb
+                .getTaskWithID(1531395872943L).getTitle());
+
     }
 
-    long insertTask(Task task) {
-//        String insertQuery = "INSERT INTO task VALUES( " +
-//                task.getId() +
-//                ", ); DROP TABLE task;"
-//                + " );";
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(Constants.COLUMN_ID, task.getId());
-        contentValues.put(Constants.COLUMN_TITLE, task.getTitle());
-
-        //Store this to the database
-        long position = taskDb.getWritableDatabase()
-                .insert(Constants.TABLE_NAME,
-                        null,
-                        contentValues);
-
-        return  position;
+    ArrayList<Task> fetchTasks() {
+        return taskDb.getAllTasks();
     }
 
-    Task getTaskWithID(Long id) {
-        //return a task with the given ID
-        return null;
-    }
-
-    ArrayList<Task> getAllTasks() {
-
-        //return an arraylist of all the tasks stored in the db
-        return null;
-    }
 
 }
