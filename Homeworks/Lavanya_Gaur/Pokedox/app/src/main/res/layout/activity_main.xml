@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:background="@drawable/forest"
+    android:alpha="0.9"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/mainName"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textColorHint="#ff0000"
+
+        android:textSize="68sp"
+        android:textStyle="bold"
+        android:textColor="#ff0000"
+        android:gravity="center"
+        android:layout_marginTop="64dp" />
+
+
+    <ImageView
+        android:id="@+id/mainImage"
+
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_below="@id/mainName"
+        android:layout_marginTop="32dp"
+        android:layout_centerInParent="true"
+        />
+
+    <EditText
+        android:id="@+id/CurrentNumber"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainImage"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:hint="What's the Poke_no."
+        android:fontFamily="cursive"
+        android:textColorHint="#0622f5"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnOk"
+
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/CurrentNumber"
+        android:layout_below="@id/mainImage"
+
+        android:layout_marginTop="52dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/search" />
+
+
+    <Button
+        android:id="@+id/btnInfo"
+
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="37dp"
+        android:background="@drawable/pokeball" />
+
+    <Button
+        android:id="@+id/btnBack"
+
+        android:layout_width="84dp"
+        android:layout_height="72dp"
+
+        android:layout_alignStart="@+id/CurrentNumber"
+        android:layout_alignTop="@+id/btnInfo"
+        android:background="@drawable/navigation_back" />
+
+
+    <Button
+        android:id="@+id/btnNext"
+
+        android:layout_width="84dp"
+        android:layout_height="72dp"
+
+android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/mainImage"
+        android:background="@drawable/navigate_next" />
+
+
+
+
+</RelativeLayout>
