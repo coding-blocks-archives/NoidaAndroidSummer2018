@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@drawable/pokedex">
+
+    <EditText
+        android:id="@+id/num"
+        android:inputType="number"
+        android:gravity="center"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="43dp"
+        android:textColor="#000000"
+        android:hint="num" />
+
+    <Button
+        android:id="@+id/info"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/tvbtn"
+        android:layout_marginTop="15dp"
+        android:text="INFO"/>
+
+
+    <Button
+        android:id="@+id/tvbtn"
+        android:layout_width="71dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginTop="128dp"
+        android:background="#FFFFE640"
+        android:text="btn" />
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="169dp"
+        android:layout_toEndOf="@+id/num" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/image"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="-169dp"
+        android:text="@string/app_name"
+        android:textSize="32sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/prev"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="PRE" />
+
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/nxt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="NEXT" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
