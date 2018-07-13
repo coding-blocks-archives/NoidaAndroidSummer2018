@@ -1,6 +1,9 @@
 package com.codingblocks.roomdb;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,14 +40,22 @@ public class MainActivity extends AppCompatActivity {
         //LiveData allows us to attach an observer onto it
         //and using that we can listen for changes
         //This gives a callback whenever the db changes
-        TaskApplication.getDb().getTaskDao().getAllTasks()
-                .observe(this, new Observer<List<Task>>() {
+
+        MyViewModel myViewModel = ViewModelProviders
+                .of(this)
+                .get(MyViewModel.class);
+
+
+        myViewModel.getTaskFromDatabase().observe(this, new Observer<List<Task>>() {
             @Override
             public void onChanged(@Nullable List<Task> tasks) {
                 //Retrieve the updated list of tasks
-                Log.e("TAG", "onChanged: task size" + tasks.size()  );
+                Log.e("TAG", "onChanged: task size" + tasks.size());
                 //Update the recyclerview adapter
             }
         });
+
+
+        String response = myViewModel.makeNetworkCall();
     }
 }
