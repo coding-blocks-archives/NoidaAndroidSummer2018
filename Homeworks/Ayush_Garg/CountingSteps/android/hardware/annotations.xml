@@ -1,0 +1,5 @@
+<root>
+    <item name='android.hardware.SensorManager SENSOR_DELAY_UI'>
+        <annotation name='android.support.annotation.Nullable' />
+    </item>
+</root>
