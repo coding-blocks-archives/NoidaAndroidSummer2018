@@ -19,13 +19,17 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ChildEventListener{
+public class MainActivity extends AppCompatActivity implements ChildEventListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final EditText etName = findViewById(R.id.etName);
+
+//        ArrayList<String> arrayList = null;
+//
+//        arrayList.add("Crash");
 
         Button btnPush = findViewById(R.id.btnPush);
 
