@@ -26,6 +26,9 @@ public interface TaskDao {
     @Insert
     void insertTask(Task... task);
 
+    @Insert
+    void insertTwoTasks(Task task1, Task task2);
+
     @Update
     void updateTask(Task task);
 

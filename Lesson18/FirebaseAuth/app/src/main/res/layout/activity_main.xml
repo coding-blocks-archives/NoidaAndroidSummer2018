@@ -22,4 +22,23 @@
         android:layout_height="wrap_content"
         android:text="Submit"/>
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/userImage"/>
+
+    <TextView
+        android:textSize="32sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvUserName"/>
+
+    <TextView
+        android:textSize="32sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvUserEmail"/>
+
+
 </LinearLayout>

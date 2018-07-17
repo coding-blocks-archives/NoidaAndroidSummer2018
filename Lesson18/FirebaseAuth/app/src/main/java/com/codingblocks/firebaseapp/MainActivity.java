@@ -9,15 +9,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,8 +33,12 @@ public class MainActivity extends AppCompatActivity implements ChildEventListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        firebaseAuth.addAuthStateListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FirebaseAuth.getInstance().addAuthStateListener(this);
     }
 
     @Override
@@ -39,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements ChildEventListene
             //start login
             Intent loginIntent = AuthUI.getInstance()
                     .createSignInIntentBuilder()
+                    .setIsSmartLockEnabled(false)
                     .setAvailableProviders(Arrays.asList(
                             new AuthUI.IdpConfig.GoogleBuilder().build(),
                             new AuthUI.IdpConfig.EmailBuilder().build(),
@@ -47,6 +56,18 @@ public class MainActivity extends AppCompatActivity implements ChildEventListene
 
             startActivity(loginIntent);
         } else {
+
+            final FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+
+            TextView userName = findViewById(R.id.tvUserName), userEmail = findViewById(R.id.tvUserEmail);
+            ImageView userImage = findViewById(R.id.userImage);
+
+            userName.setText(currentUser.getDisplayName());
+            userEmail.setText(currentUser.getEmail());
+
+            Picasso.get().load(currentUser.getPhotoUrl()).into(userImage);
+
+
             final EditText etName = findViewById(R.id.etName);
             Button btnPush = findViewById(R.id.btnPush);
             FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -61,11 +82,10 @@ public class MainActivity extends AppCompatActivity implements ChildEventListene
                             " Current time is ",
                             System.currentTimeMillis());
 
-                    DatabaseReference newRef = rootRef.push();
-                    newRef.setValue(task);
+                    rootRef.child(currentUser.getUid()).push().setValue(task);
                 }
             });
-            rootRef.addChildEventListener(this);
+            rootRef.child(currentUser.getUid()).addChildEventListener(this);
         }
     }
 
