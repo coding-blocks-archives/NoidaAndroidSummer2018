@@ -3,6 +3,7 @@ package com.codingblocks.workmanager;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import androidx.work.Data;
 import androidx.work.Worker;
 
 public class MyWorker extends Worker {
@@ -12,6 +13,10 @@ public class MyWorker extends Worker {
     public Result doWork() {
         //This runs in a separate thread,
         // so run all long running operations here
+
+        //Receive the data provided to the worker
+        Data returnedData = getInputData();
+
 
         //The application context is not a complete context.
         //You can't use it to do any UI related operations, for
