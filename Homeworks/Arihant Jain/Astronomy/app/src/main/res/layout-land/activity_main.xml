@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:orientation="horizontal"
+
+    tools:context=".MainActivity">
+
+
+
+    <FrameLayout android:layout_width="0dp"
+
+        android:layout_height="match_parent"
+
+        android:layout_weight="8"
+
+        android:id="@+id/fragmentcontainer">
+
+        <android.support.design.widget.TabLayout
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:id="@+id/tabLayout"
+
+            app:tabTextColor="#ffffff"
+
+            app:tabSelectedTextColor="#536dfe"
+
+            android:background="#000000"/>
+
+        <android.support.v4.view.ViewPager
+
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+
+            android:layout_marginTop="40dp"
+
+            android:id="@+id/viewPager" />
+
+    </FrameLayout>
+
+
+
+    <TextView
+
+        android:layout_width="5dp"
+
+        android:layout_height="match_parent"
+
+        android:background="#000000"/>
+
+
+
+    <FrameLayout
+
+        android:layout_width="0dp"
+
+        android:layout_height="match_parent"
+
+        android:layout_weight="9"
+
+        android:id="@+id/detailfragment" />
+
+
+
+</LinearLayout>
