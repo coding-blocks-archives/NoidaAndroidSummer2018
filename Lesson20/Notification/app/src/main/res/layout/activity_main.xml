@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.codingblocks.notification.MainActivity">
+
+    <Button
+        android:onClick="simpleNotification"
+        android:id="@+id/btnSimple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Simple Notification" />
+
+    <Button
+        android:onClick="expandedText"
+        android:id="@+id/btnExpandedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expanded Text Notification" />
+
+    <Button
+        android:onClick="expandedImage"
+        android:id="@+id/btnExpandedImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expanded Image Notification" />
+
+    <Button
+        android:onClick="inboxStyle"
+        android:id="@+id/btnInbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inbox Notification" />
+
+</LinearLayout>
