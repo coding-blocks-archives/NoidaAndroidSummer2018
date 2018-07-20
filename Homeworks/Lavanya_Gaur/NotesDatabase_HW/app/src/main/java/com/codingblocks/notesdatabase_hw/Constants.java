@@ -1,0 +1,20 @@
+package com.codingblocks.notesdatabase_hw;
+
+
+    public interface Constants {
+
+        String CREATE = " CREATE TABLE ";
+        String TABLE_NAME = " task ";
+        String COLUMN_ID = " idd ";
+        String COLUMN_TITLE = " tasktitle ";
+        String DB_NAME = " taskdb ";
+        String INTEGER = " INTEGER ";
+        String PRIMARY_KEY = " PRIMARY KEY ";
+        String TEXT = " TEXT ";
+        String COMMA = " , ";
+        String LBR = " ) ";
+        String RBR = " ( ";
+        String NOT_NULL = " NOT NULL ";
+        String TERMINATION = " ; ";
+
+    }
