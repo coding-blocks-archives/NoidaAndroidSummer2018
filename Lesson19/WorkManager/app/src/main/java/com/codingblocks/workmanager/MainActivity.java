@@ -2,6 +2,7 @@ package com.codingblocks.workmanager;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
+        startService(new Intent(this, MyIntentService.class));
+
         Constraints constraints = new Constraints.Builder()
                 .setRequiresCharging(true)
                 .setRequiredNetworkType(NetworkType.CONNECTED)
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .build();
 
         Data data = new Data.Builder()
-                .putString("HELLO","WORLD")
+                .putString("HELLO", "WORLD")
                 .build();
 
         OneTimeWorkRequest oneTimeWorkRequest = new OneTimeWorkRequest
@@ -74,9 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onChanged(@Nullable WorkStatus workStatus) {
 
                 State state = workStatus.getState();
-                if (state == State.FAILED){
+                if (state == State.FAILED) {
 
-                }else if (state == State.SUCCEEDED){
+                } else if (state == State.SUCCEEDED) {
                     //Fetch data from the database and set it to the ArrayList
                 }
 
